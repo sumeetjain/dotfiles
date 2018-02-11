@@ -1,0 +1,18 @@
+#!/bin/sh
+# Sets up a new subtask branch.
+
+npd_issue=$1
+
+cd /Users/sumeet/Code/Unabridged/n2-portal
+
+echo "Checking out Rails 5 upgrade branch..."
+git checkout npd-826-rails-5-upgrade
+
+git pull upstream npd-826-rails-5-upgrade
+
+echo "Cutting a new branch for $npd_issue off the Rails 5 upgrade branch..."
+git checkout -b "npd-826/fix-$npd_issue"
+
+git commit --allow-empty -m "WIP"
+
+git push -u mine "npd-826/fix-$npd_issue"

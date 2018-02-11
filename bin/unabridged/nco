@@ -1,0 +1,11 @@
+#!/bin/sh
+# Switching back and forth between branches with long names is annoying.
+
+
+npd_issue=$1
+
+if [ $npd_issue ]; then
+  git checkout "npd-826/fix-$npd_issue"
+else
+  git checkout "npd-826-rails-5-upgrade"
+fi
